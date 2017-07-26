@@ -17,9 +17,6 @@ public class CreateController extends HttpServlet
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
-        // TODO Auto-generated method stub
-        super.doGet(request, response);
-        
         UserVO userVO = new UserVO();
         
         userVO.setUserId(request.getParameter("userId"));
@@ -29,9 +26,10 @@ public class CreateController extends HttpServlet
         
         System.out.println(userVO.getName() + " " + userVO.getUserId() + " " +  userVO.getEmail());
         
-        RequestDispatcher rd = request.getRequestDispatcher("/jsp/index.jsp");
+        request.setAttribute("users", userVO);
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("/jsp/index.jsp");
 
-        rd.forward(request, response);
+        requestDispatcher.forward(request, response);
         
     }   
 }

@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+	pageEncoding="EUC-KR"%>
+<%@ page import="java.util.*"%>
+<%@ page import="com.servlet.jsp.vo.*" %>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -7,6 +10,12 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+<%
+	Collection<UserVO> users = (Collection<UserVO>)request.getAttribute("users");
+	for(UserVO user : users) {
+%>
+	<td><%= user.getUserId() %></td>
+	<td><%= user.getPassword() %></td>
+<% } %>
 </body>
 </html>
