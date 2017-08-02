@@ -26,7 +26,7 @@ public class CreateController extends HttpServlet
         
         System.out.println(userVO.getName() + " " + userVO.getUserId() + " " +  userVO.getEmail());
         
-        request.setAttribute("users", userVO);
+        request.setAttribute("user", userVO);
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("/jsp/index.jsp");
 
         requestDispatcher.forward(request, response);
